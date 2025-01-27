@@ -75,10 +75,8 @@ class _MyHomePageState extends State<MyHomePage> {
     switch (selectedIndex) {
       case 0:
         page = GeneratorPage();
-        break;
       case 1:
         page = FavoritesPage();
-        break;
       default:
         throw UnimplementedError('no widget for $selectedIndex');
     }
@@ -86,7 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // The container for the current page, with its background color
     // and subtle switching animation.
     var mainArea = ColoredBox(
-      color: colorScheme.surfaceVariant,
+      color: colorScheme.surfaceContainerHighest,
       child: AnimatedSwitcher(
         duration: Duration(milliseconds: 200),
         child: page,
@@ -210,9 +208,9 @@ class GeneratorPage extends StatelessWidget {
 
 class BigCard extends StatelessWidget {
   const BigCard({
-    Key? key,
+    super.key,
     required this.pair,
-  }) : super(key: key);
+  });
 
   final WordPair pair;
 
@@ -302,7 +300,7 @@ class FavoritesPage extends StatelessWidget {
 }
 
 class HistoryListView extends StatefulWidget {
-  const HistoryListView({Key? key}) : super(key: key);
+  const HistoryListView({super.key});
 
   @override
   State<HistoryListView> createState() => _HistoryListViewState();
